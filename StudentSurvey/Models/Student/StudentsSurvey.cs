@@ -1,10 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace StudentSurvey.Models
+namespace StudentSurvey.Models.Student
 {
-    public class EmployeeSurvey
+    public class StudentsSurvey
     {
-
         [Key]
         public int Id { get; set; }
         public string Question_1 { get; set; }
@@ -25,11 +24,16 @@ namespace StudentSurvey.Models
         public string Question_16 { get; set; }
         public string Question_17 { get; set; }
         public string Question_18 { get; set; }
-        public string Question_19 { get; set; }             
+        public string Question_19 { get; set; }
+        public string Question_20 { get; set; }
+        public string Question_21 { get; set; }
+        public string StudentName { get; set; }
         public string Email { get; set; }
+        public string Department { get; set; }
         public string Organization_Name { get; set; }
-        public string Bussiness_Type { get; set; }
-        public int NoOfGraduate { get; set; }
+        public string Organization_Position { get; set; }
+        public string Registration_no { get; set; }
+        public string Contact_no { get; set; }
     }
 }
 

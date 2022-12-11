@@ -3,7 +3,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace StudentSurvey.Models
+namespace StudentSurvey.Models.Authentication
 {
     public class jwtService
     {
@@ -13,25 +13,26 @@ namespace StudentSurvey.Models
         public jwtService(IConfiguration config)
         {
             _config = config;
-            this.SecretKey = config.GetSection("jwtConfig").GetSection("Key").Value;
+            SecretKey = config.GetSection("jwtConfig").GetSection("Key").Value;
 
-            //this.TokenDuration = Int32.Parse(config.GetSection("jwtConfig").GetSection("Key").Value);
+            TokenDuration = int.Parse(config.GetSection("jwtConfig").GetSection("Duration").Value);
         }
-        public string GenerateToken(string id, string Email)
+        public string GenerateToken(string id, string Email, string department)
 
         {
-            var Key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(this.SecretKey));
+            var Key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(SecretKey));
             var signature = new SigningCredentials(Key, SecurityAlgorithms.HmacSha256);
             var payLoad = new[]
             {
-                new Claim("id",id),                
+                new Claim("id",id),
                 new Claim("Email",Email),
+                new Claim("department",department),
             };
             var jwtToken = new JwtSecurityToken(
                 issuer: "localhost",
                 audience: "localhost",
                 claims: payLoad,
-                //  expires: DateTime.Now.AddMinutes(TokenDuration),
+                  expires: DateTime.Now.AddMinutes(TokenDuration),
 
                 signingCredentials: signature
 

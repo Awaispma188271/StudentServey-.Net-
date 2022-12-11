@@ -1,12 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace StudentSurvey.Models
+namespace StudentSurvey.Models.Authentication
 {
     public class Login
     {
         [Key]
-        public int Id { get; set; } 
+        public int Id { get; set; }
         public string? Email { get; set; }
         public string? Password { get; set; }
+        public string Department { get; set; }
     }
 }

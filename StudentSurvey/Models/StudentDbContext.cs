@@ -1,4 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using StudentSurvey.Models.Authentication;
+using StudentSurvey.Models.Employee;
+using StudentSurvey.Models.Student;
 using System.Collections.Generic;
 using System.Data;
 
@@ -9,8 +12,12 @@ namespace StudentSurvey.Models
         public StudentDbContext(DbContextOptions options) : base(options)
         {
         }
-        public DbSet<Survey> StudentSurveys { get; set; }
-        public DbSet<EmployeeSurvey> EmployeeSurveys { get; set; }
+
+        //Student Tables
+        public DbSet<StudentsSurvey> StudentSurveys { get; set; }
+        //Empplyee Tables
+        public DbSet<EmployerSurvey> EmployerSurveys { get; set; }
+        //Admin Tables
         public DbSet<Login> AdminLogin { get; set; }
 
     }
