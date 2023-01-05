@@ -26,11 +26,18 @@ namespace StudentSurvey.Models.Employee
         public string Question_17 { get; set; }
         public string Question_18 { get; set; }
         public string Question_19 { get; set; }
-        public string Email { get; set; }
+
+        //Evaluator information
+        public string EvaluatorName { get; set; }
+        public string Designation_Evaluator { get; set; }
         public string Organization_Name { get; set; }
-        public string Bussiness_Type { get; set; }
-        public int NoOfGraduate { get; set; }
         public string Contact_no { get; set; }
+        public string Email { get; set; }
+        //Graduate information
+        public string EmployerName { get; set; }
+        public string Designation_Employer { get; set; }
+        public string Registration_no { get; set; }
+        public string Job_Level { get; set; }
         public string Department { get; set; }
     }
 }

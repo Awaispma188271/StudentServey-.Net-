@@ -28,12 +28,15 @@ namespace StudentSurvey.Models.Student
         public string Question_20 { get; set; }
         public string Question_21 { get; set; }
         public string StudentName { get; set; }
-        public string Email { get; set; }
+        public string Registration_no { get; set; }
+        public string CNIC_no { get; set; }
+        public string Contact_no { get; set; }        
+        public string Email { get; set; }       
+        public string Employment_Status { get; set; }
         public string Department { get; set; }
         public string Organization_Name { get; set; }
         public string Organization_Position { get; set; }
-        public string Registration_no { get; set; }
-        public string Contact_no { get; set; }
+       
     }
 }
 

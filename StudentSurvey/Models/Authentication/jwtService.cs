@@ -27,7 +27,7 @@ namespace StudentSurvey.Models.Authentication
                 new Claim("id",id),
                 new Claim("Email",Email),
                 new Claim("department",department),
-            };
+            }; 
             var jwtToken = new JwtSecurityToken(
                 issuer: "localhost",
                 audience: "localhost",
