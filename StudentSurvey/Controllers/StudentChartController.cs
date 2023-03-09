@@ -457,28 +457,7 @@ namespace StudentSurvey.Controllers
 
         }
        
-        [HttpGet("GetchartQ21/{id:int}")]
-        public ActionResult GetDataQ21([FromRoute] int id)
-        {
-            var adminLogin = _context.AdminLogin.Find(id);
-            if (adminLogin == null)
-                return NotFound();
-
-            int Excellent = _context.StudentSurveys.Where(x => x.Question_21 == "Excellent" && x.Department == adminLogin.Department).Count();
-            int Good = _context.StudentSurveys.Where(x => x.Question_21 == "Good" && x.Department == adminLogin.Department).Count();
-            int Very_Good = _context.StudentSurveys.Where(x => x.Question_21 == "Very Good" && x.Department == adminLogin.Department).Count();
-            int Fair = _context.StudentSurveys.Where(x => x.Question_21 == "Fair" && x.Department == adminLogin.Department).Count();
-            int Poor = _context.StudentSurveys.Where(x => x.Question_21 == "Poor" && x.Department == adminLogin.Department).Count();
-
-            Ratio obj = new Ratio();
-            obj.Excellent = Excellent;
-            obj.Good = Good;
-            obj.Very_Good = Very_Good;
-            obj.Fair = Fair;
-            obj.Poor = Poor;
-            return Ok(obj);
-
-        }
+       
         public class Ratio
         {
             public int Excellent { get; set; }

@@ -52,6 +52,10 @@ namespace StudentSurvey.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Comments")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Contact_no")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -128,10 +132,6 @@ namespace StudentSurvey.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Question_19")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Question_2")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -182,6 +182,10 @@ namespace StudentSurvey.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("CNIC_no")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Comments")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -258,10 +262,6 @@ namespace StudentSurvey.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Question_20")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Question_21")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

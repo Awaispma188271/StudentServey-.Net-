@@ -40,6 +40,7 @@ namespace StudentSurvey.Controllers
             }
             return BadRequest();
         }
+       
         //Post All student 
 
         [AllowAnonymous]
@@ -60,6 +61,28 @@ namespace StudentSurvey.Controllers
                 throw;
             }
         }
+        //Delete
+        [AllowAnonymous]
+        [HttpDelete("deleteStudentEntity/{id}")]
+        public async Task<IActionResult> deleteStudentEntity([FromRoute] int id)
+        {
+            try
+            {
+                var findId = _context.StudentSurveys.Find(id);
+                if (findId == null)
+                    return BadRequest();
+
+                 _context.StudentSurveys.Remove(findId);
+                await _context.SaveChangesAsync();
+                return Ok();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
         [AllowAnonymous]
         [HttpPost("loginAdmin")]
         public async Task<IActionResult> Login(Login user)
@@ -68,7 +91,7 @@ namespace StudentSurvey.Controllers
             if (userLogin != null)
             {
                 return Ok(new jwtService(_config).GenerateToken(
-                    userLogin.Email,
+                    userLogin.Email, 
                     userLogin.Id.ToString(),
                     userLogin.Department
                     ));
@@ -88,6 +111,26 @@ namespace StudentSurvey.Controllers
                 return BadRequest();
             var EmployerSurveyDepartmentVice =_context.EmployerSurveys.Where(x =>x.Department == adminLogin.Department).ToList();
             return Ok(EmployerSurveyDepartmentVice);
+        }
+        //delete
+        [AllowAnonymous]
+        [HttpDelete("deleteEmployeeEntity/{id}")]
+        public async Task<IActionResult> deleteEmployeeEntity([FromRoute] int id)
+        {
+            try
+            {
+                var findId = _context.EmployerSurveys.Find(id);
+                if (findId == null)
+                    return BadRequest();
+
+                _context.EmployerSurveys.Remove(findId);
+                await _context.SaveChangesAsync();
+                return Ok();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         [AllowAnonymous]

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace StudentSurvey.Models.Student
 {
@@ -26,7 +27,6 @@ namespace StudentSurvey.Models.Student
         public string Question_18 { get; set; }
         public string Question_19 { get; set; }
         public string Question_20 { get; set; }
-        public string Question_21 { get; set; }
         public string StudentName { get; set; }
         public string Registration_no { get; set; }
         public string CNIC_no { get; set; }
@@ -36,7 +36,8 @@ namespace StudentSurvey.Models.Student
         public string Department { get; set; }
         public string Organization_Name { get; set; }
         public string Organization_Position { get; set; }
-       
+        [Required]
+        public string Comments { get; set; }
     }
 }
 

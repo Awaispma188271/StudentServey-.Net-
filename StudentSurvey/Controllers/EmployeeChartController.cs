@@ -412,28 +412,7 @@ public ActionResult GetDataQ18([FromRoute] int id)
     return Ok(obj);
 
 }
-[HttpGet("GetchartQ19/{id:int}")]
-public ActionResult GetDataQ19([FromRoute] int id)
-{
-    var adminLogin = _context.AdminLogin.Find(id);
-    if (adminLogin == null)
-        return NotFound();
 
-    int Excellent = _context.EmployerSurveys.Where(x => x.Question_19 == "Excellent" && x.Department == adminLogin.Department).Count();
-    int Good = _context.EmployerSurveys.Where(x => x.Question_19 == "Good" && x.Department == adminLogin.Department).Count();
-    int Very_Good = _context.EmployerSurveys.Where(x => x.Question_19 == "Very Good" && x.Department == adminLogin.Department).Count();
-    int Fair = _context.EmployerSurveys.Where(x => x.Question_19 == "Fair" && x.Department == adminLogin.Department).Count();
-    int Poor = _context.EmployerSurveys.Where(x => x.Question_19 == "Poor" && x.Department == adminLogin.Department).Count();
-
-    Ratio obj = new Ratio();
-    obj.Excellent = Excellent;
-    obj.Good = Good;
-    obj.Very_Good = Very_Good;
-    obj.Fair = Fair;
-    obj.Poor = Poor;
-    return Ok(obj);
-
-}
 public class Ratio
 {
     public int Excellent { get; set; }

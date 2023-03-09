@@ -92,7 +92,5 @@ app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyOrig
 app.UseAuthentication();
 app.UseRouting();
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();

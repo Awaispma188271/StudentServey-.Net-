@@ -25,7 +25,6 @@ namespace StudentSurvey.Models.Employee
         public string Question_16 { get; set; }
         public string Question_17 { get; set; }
         public string Question_18 { get; set; }
-        public string Question_19 { get; set; }
 
         //Evaluator information
         public string EvaluatorName { get; set; }
@@ -39,6 +38,7 @@ namespace StudentSurvey.Models.Employee
         public string Registration_no { get; set; }
         public string Job_Level { get; set; }
         public string Department { get; set; }
+        public string Comments { get; set; }
     }
 }
 
