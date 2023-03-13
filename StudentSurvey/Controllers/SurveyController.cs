@@ -63,7 +63,7 @@ namespace StudentSurvey.Controllers
         }
         //Delete
         [AllowAnonymous]
-        [HttpDelete("deleteStudentEntity/{id}")]
+        [HttpPost("deleteStudentEntity/{id}")]
         public async Task<IActionResult> deleteStudentEntity([FromRoute] int id)
         {
             try
@@ -114,7 +114,7 @@ namespace StudentSurvey.Controllers
         }
         //delete
         [AllowAnonymous]
-        [HttpDelete("deleteEmployeeEntity/{id}")]
+        [HttpPost("deleteEmployeeEntity/{id}")]
         public async Task<IActionResult> deleteEmployeeEntity([FromRoute] int id)
         {
             try
